@@ -10,6 +10,8 @@
 #import "JXBWKWebView.h"
 #import "WKWebViewExtension.h"
 #import "JXBWebViewNetworkInterceptor.h"
+#import <QMUIKit/QMUIKit.h>
+
 @class JXBWebViewController;
 
 #ifndef JXB_REQUIRES_SUPER
@@ -36,7 +38,7 @@
 
 #pragma mark - JXBWebViewController
 
-@interface JXBWebViewController : UIViewController
+@interface JXBWebViewController : QMUICommonViewController
 @property (nonatomic, strong) JXBWKWebView                      *webView;
 @property (nonatomic, weak)   id<JXBWebViewControllerDelegate>  delegate;
 @property (nonatomic, strong) NSArray<NSHTTPCookie *>           *cookies;

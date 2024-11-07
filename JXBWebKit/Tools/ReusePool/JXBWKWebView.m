@@ -41,6 +41,7 @@
 - (void)dealloc{
     //清除handler
     [self.configuration.userContentController removeScriptMessageHandlerForName:@"WKNativeMethodMessage"];
+    [self.configuration.userContentController removeScriptMessageHandlerForName:@"nativeGoBack"];
     //清除UserScript
     [self.configuration.userContentController removeAllUserScripts];
     //停止加载
@@ -154,6 +155,7 @@
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:bridgeJSString injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     [configuration.userContentController addUserScript:userScript];
     [configuration.userContentController addScriptMessageHandler:[[WKCallNativeMethodMessageHandler alloc] init] name:@"WKNativeMethodMessage"];
+    [configuration.userContentController addScriptMessageHandler:[[WKCallNativeMethodMessageHandler alloc] init] name:@"nativeGoBack"];
     if ([configuration respondsToSelector:@selector(setAllowsInlineMediaPlayback:)]) {
         [configuration setAllowsInlineMediaPlayback:YES];
     }

@@ -14,6 +14,11 @@
 
 #pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    
+    if ([message.name isEqualToString:@"nativeGoBack"]) {
+        [NSNotificationCenter.defaultCenter postNotificationName:@"CGWebViewGoBack" object:nil];
+        return;
+    }
     //获取到js脚本传过来的参数
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:message.body];
     
