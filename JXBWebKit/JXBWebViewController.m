@@ -214,7 +214,8 @@ static NSString *POSTRequest = @"POST";
 //返回item
 - (UIBarButtonItem *)backItem {
     if (_backItem) return _backItem;
-    UIImage *backImage = [self _readImageWithName:@"webView_back"];
+//    UIImage *backImage = [self _readImageWithName:@"webView_back"];
+    UIImage *backImage = [UIImage imageNamed:@"nav_back"];
     _backItem = [[UIBarButtonItem alloc] initWithImage:backImage
                                                  style:UIBarButtonItemStylePlain
                                                 target:self
