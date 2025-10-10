@@ -104,7 +104,11 @@ static NSString *POSTRequest = @"POST";
     [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_webView];
-    [self registerSupportProtocolWithHTTP:NO schemes:@[@"post", kWKWebViewReuseScheme] protocolClass:[JXBWKCustomProtocol class]];
+    if (@available(iOS 26.0, *)) {
+        
+    } else {
+        [self registerSupportProtocolWithHTTP:NO schemes:@[@"post", kWKWebViewReuseScheme] protocolClass:[JXBWKCustomProtocol class]];
+    }
 }
 
 - (void)fetchData {
