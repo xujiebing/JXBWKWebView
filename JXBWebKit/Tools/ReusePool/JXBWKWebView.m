@@ -42,6 +42,7 @@
     //清除handler
     [self.configuration.userContentController removeScriptMessageHandlerForName:@"WKNativeMethodMessage"];
     [self.configuration.userContentController removeScriptMessageHandlerForName:@"nativeGoBack"];
+    [self.configuration.userContentController removeScriptMessageHandlerForName:@"webViewGoBack"];
     //清除UserScript
     [self.configuration.userContentController removeAllUserScripts];
     //停止加载
@@ -156,6 +157,7 @@
     [configuration.userContentController addUserScript:userScript];
     [configuration.userContentController addScriptMessageHandler:[[WKCallNativeMethodMessageHandler alloc] init] name:@"WKNativeMethodMessage"];
     [configuration.userContentController addScriptMessageHandler:[[WKCallNativeMethodMessageHandler alloc] init] name:@"nativeGoBack"];
+    [configuration.userContentController addScriptMessageHandler:[[WKCallNativeMethodMessageHandler alloc] init] name:@"webViewGoBack"];
     if ([configuration respondsToSelector:@selector(setAllowsInlineMediaPlayback:)]) {
         [configuration setAllowsInlineMediaPlayback:YES];
     }

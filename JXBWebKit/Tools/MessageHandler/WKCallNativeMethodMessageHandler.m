@@ -19,6 +19,10 @@
         [NSNotificationCenter.defaultCenter postNotificationName:@"CGWebViewGoBack" object:nil];
         return;
     }
+    if ([message.name isEqualToString:@"webViewGoBack"]) {
+        [NSNotificationCenter.defaultCenter postNotificationName:@"CGWebViewH5GoBack" object:nil];
+        return;
+    }
     //获取到js脚本传过来的参数
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:message.body];
     
